@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import numpy as np
+import pandas as pd
 
 from app.analysis_data import deduplicate_measurements
 from app.ml import regression_train
@@ -28,7 +29,7 @@ def test_exact_duplicates_are_removed_without_changing_source(synthetic_df):
     duplicated = work.iloc[[0]].copy()
     duplicated["id"] = 9999
     duplicated["campaign_id"] = "duplicate-ingestion"
-    combined = work._append(duplicated, ignore_index=True)
+    combined = pd.concat([work, duplicated], ignore_index=True)
 
     clean, n_dropped, key = deduplicate_measurements(combined)
 
@@ -58,7 +59,7 @@ def test_duplicate_state_coalesces_complementary_qos(synthetic_df):
     second["test_ul_max_kbps"] = np.nan
     second["test_ul_max_status"] = "missing"
 
-    combined = first._append(second, ignore_index=True)
+    combined = pd.concat([first, second], ignore_index=True)
     original = combined.copy(deep=True)
     clean, n_dropped, _ = deduplicate_measurements(combined)
 
@@ -86,7 +87,7 @@ def test_wifi_invalid_qos_is_not_used_as_coalesce_source(synthetic_df):
     wifi["test_dl_max_status"] = "wifi_invalid"
 
     clean, _, _ = deduplicate_measurements(
-        wifi._append(mobile, ignore_index=True)
+        pd.concat([wifi, mobile], ignore_index=True)
     )
 
     assert len(clean) == 1
@@ -121,6 +122,9 @@ def test_unsupervised_returns_all_promised_methods(synthetic_df):
 
 def test_grouped_regression_keeps_campaigns_intact(synthetic_df):
     work = _with_route_metadata(synthetic_df)
+    # pandas 3 infers text as StringDtype. Keep this explicit so the
+    # categorical encoding remains covered when tests run on pandas 2.x too.
+    work["environment_class"] = work["environment_class"].astype("string")
     result = regression_train(
         work,
         features=["distance_to_serving_m", "altitude_m", "environment_class"],

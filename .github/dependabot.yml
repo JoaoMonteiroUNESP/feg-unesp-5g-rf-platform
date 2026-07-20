@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: monthly
     open-pull-requests-limit: 5
+    # NumPy 2.5+ requires Python 3.12, while the supported runtime and CI are
+    # intentionally kept on Python 3.11. Remove this rule with that migration.
+    ignore:
+      - dependency-name: numpy
+        versions:
+          - ">=2.5"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Se este software apoiar seu trabalho, cite-o usando estes metadados."
 title: "Plataforma Científica RF — FEG-UNESP"
 type: software
-version: 0.3.0
+version: 0.3.1
 date-released: 2026-07-19
 license: MIT
 authors:

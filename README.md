@@ -49,6 +49,9 @@ Principais recursos:
 
 Recomendado: Python 3.11.
 
+O pipeline é testado com pandas 3 em Python 3.11 ou superior. Para instalações
+legadas em Python 3.10, o arquivo de dependências mantém pandas 2.3.
+
 ### Windows
 
 1. Execute `1_INSTALAR.bat`.

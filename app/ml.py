@@ -34,6 +34,7 @@ from typing import Iterable
 
 import numpy as np
 import pandas as pd
+from pandas.api.types import is_object_dtype, is_string_dtype
 
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.linear_model import LinearRegression
@@ -164,8 +165,17 @@ def _prepare_features(df: pd.DataFrame, requested: Iterable[str], target: str
     available = [c for c in requested if c in df.columns]
     dropped_missing_col = [c for c in requested if c not in df.columns]
 
-    # Decide categorical vs numeric by dtype
-    cats = [c for c in available if df[c].dtype == object]
+    # Detect both legacy ``object`` strings (pandas 2.x) and the dedicated
+    # StringDtype used by pandas 3.x. Explicit categorical dtypes are nominal
+    # too and must never reach the numeric matrix without encoding.
+    cats = [
+        c for c in available
+        if (
+            is_object_dtype(df[c].dtype)
+            or is_string_dtype(df[c].dtype)
+            or isinstance(df[c].dtype, pd.CategoricalDtype)
+        )
+    ]
     nums = [c for c in available if c not in cats]
 
     # ANTI dataset-vazio: features numericas com >50% NaN sao removidas ANTES
@@ -200,7 +210,9 @@ def _prepare_features(df: pd.DataFrame, requested: Iterable[str], target: str
     if cats:
         for c in cats:
             work[c] = work[c].fillna("unknown").astype(str)
-        work = pd.get_dummies(work, columns=cats, drop_first=False)
+        work = pd.get_dummies(
+            work, columns=cats, drop_first=False, dtype=float
+        )
 
     rows_used = len(work)
     rows_dropped = rows_input - rows_used
