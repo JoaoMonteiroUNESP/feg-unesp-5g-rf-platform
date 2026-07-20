@@ -1,0 +1,53 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime and research data: never publish measurements or databases
+data/*
+!data/README.md
+!data/demo/
+data/demo/*
+!data/demo/.gitkeep
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.log
+app_capture_*.log
+
+# Generated exports and reports
+*.xlsx
+*.xls
+*.parquet
+*.pkl
+*.joblib
+outputs/
+dist/
+build/
+*.egg-info/
+
+# Local one-off research scripts kept outside the public product surface
+backfill_runner.py
+teste_*.py
+4_REGERAR_RELATORIO_PGA.bat
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

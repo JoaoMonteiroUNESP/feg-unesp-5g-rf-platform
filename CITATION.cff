@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Se este software apoiar seu trabalho, cite-o usando estes metadados."
+title: "Plataforma Científica RF — FEG-UNESP"
+type: software
+version: 0.3.0
+date-released: 2026-07-19
+license: MIT
+authors:
+  - family-names: "Monteiro"
+    given-names: "João Guilherme de Castro"
+    affiliation: "Faculdade de Engenharia e Ciências, UNESP"
+abstract: >-
+  Plataforma local e auditável para ingestão, exploração espacial e modelagem
+  de medições comerciais 5G NSA em rotas de campus.
+keywords:
+  - 5G NSA
+  - radio measurements
+  - quality of service
+  - machine learning
+  - reproducible research

@@ -1,0 +1,39 @@
+name: Relatar problema
+description: Informe uma falha reproduzível sem anexar dados reais ou segredos.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Não anexe bancos, logs de campo, coordenadas, identificadores de célula
+        ou arquivos .env. Use o gerador sintético para reproduzir o problema.
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição
+      description: O que aconteceu e o que era esperado?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reprodução mínima
+      description: Comandos, passos e dados sintéticos necessários.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versão do Python
+      placeholder: "3.11.x"
+    validations:
+      required: true
+  - type: dropdown
+    id: sensitive
+    attributes:
+      label: Confirmação de privacidade
+      options:
+        - "Confirmo que removi dados reais e credenciais"
+    validations:
+      required: true

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "Info dos quadrantes2 (2).xlsx — sheet 'Dados quadrantes'",
+  "coordinate_system": "local_meters_origin_sw",
+  "scale": "1:70 (1 cm desenho = 0.70 m real)",
+  "extent_m": {"x_max": 675, "y_max": 415},
+  "note": "Polígonos em metros locais com origem (0,0) no canto inferior esquerdo do desenho FEG-UNESP. Para uso analítico, aplicar a transformação afim definida em data/calibration.json (gerada a partir de pontos de controle reais).",
+  "sectors": [
+    {"id": 1,  "xmin": 165.0,   "ymin": 255.0,   "xmax": 225.0,   "ymax": 300.0},
+    {"id": 2,  "xmin": 142.5,   "ymin": 230.0,   "xmax": 205.0,   "ymax": 302.5},
+    {"id": 3,  "xmin": 125.0,   "ymin": 202.5,   "xmax": 190.0,   "ymax": 257.5},
+    {"id": 4,  "xmin": 112.5,   "ymin": 180.0,   "xmax": 175.0,   "ymax": 235.0},
+    {"id": 5,  "xmin": 32.5,    "ymin": 25.0,    "xmax": 100.0,   "ymax": 82.5 },
+    {"id": 6,  "xmin": 117.5,   "ymin": 40.0,    "xmax": 280.0,   "ymax": 135.0},
+    {"id": 7,  "xmin": 330.0,   "ymin": 80.0,    "xmax": 375.0,   "ymax": 105.0},
+    {"id": 8,  "xmin": 215.0,   "ymin": 292.5,   "xmax": 265.0,   "ymax": 350.0},
+    {"id": 9,  "xmin": 182.5,   "ymin": 330.0,   "xmax": 227.5,   "ymax": 387.5},
+    {"id": 10, "xmin": 307.5,   "ymin": 140.0,   "xmax": 395.0,   "ymax": 217.5},
+    {"id": 11, "xmin": 447.5,   "ymin": 145.0,   "xmax": 550.0,   "ymax": 240.0},
+    {"id": 12, "xmin": 300.0,   "ymin": 200.0,   "xmax": 420.0,   "ymax": 320.0},
+    {"id": 13, "xmin": 330.0,   "ymin": 250.0,   "xmax": 410.0,   "ymax": 330.0},
+    {"id": 14, "xmin": 385.0,   "ymin": 305.0,   "xmax": 445.0,   "ymax": 385.0},
+    {"id": 15, "xmin": 340.0,   "ymin": 367.5,   "xmax": 380.0,   "ymax": 415.0},
+    {"id": 16, "xmin": 530.0,   "ymin": 220.0,   "xmax": 580.0,   "ymax": 310.0},
+    {"id": 17, "xmin": 600.0,   "ymin": 165.0,   "xmax": 675.0,   "ymax": 210.0},
+    {"id": 18, "xmin": 410.0,   "ymin": 125.0,   "xmax": 480.0,   "ymax": 165.0},
+    {"id": 19, "xmin": 465.0,   "ymin": 290.0,   "xmax": 530.0,   "ymax": 325.0},
+    {"id": 20, "xmin": 255.0,   "ymin": 380.0,   "xmax": 325.0,   "ymax": 415.0},
+    {"id": 21, "xmin": 30.0,    "ymin": 115.0,   "xmax": 85.0,    "ymax": 150.0}
+  ]
+}
