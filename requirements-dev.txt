@@ -1,4 +1,4 @@
 -r requirements.txt
 
-pytest>=9.0,<9.1
+pytest>=9.1.1,<9.2
 ruff>=0.14,<0.15
