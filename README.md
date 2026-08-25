@@ -98,6 +98,26 @@ serve apenas para demonstrar o fluxo; **não é evidência científica**.
 Dados reais, bancos SQLite, coordenadas, logs, calibrações e exportações são
 ignorados pelo Git. Consulte [data/README.md](data/README.md).
 
+## Resultados de validação
+
+Figuras agregadas da modelagem (métricas de qualidade, **sem dados brutos nem
+localizações**). A validação é sempre **agrupada por campanha**, para não
+superestimar o desempenho.
+
+![Classificação de tecnologia 4G vs 5G](docs/figuras/classificacao_4g_5g.png)
+
+*Classificação 4G vs 5G (Random Forest): acurácia balanceada ≈ 0,78 sob
+validação agrupada — o modelo distingue a tecnologia com desempenho consistente.*
+
+![R² por modelo para o alvo RSRP](docs/figuras/regressao_rsrp_r2.png)
+
+*Regressão do RSRP absoluto: sob validação agrupada por campanha, nenhum modelo
+supera de forma robusta o baseline (R² próximo de zero ou negativo). É um
+resultado **honesto e esperado** — prever o nível absoluto de sinal exige mais
+contexto do que as rotas medidas oferecem, e reportá-lo assim evita conclusões
+infladas por vazamento entre amostras. O valor do projeto está na cadeia
+auditável e na metodologia, não em forçar um número.*
+
 ## Guardrails científicos
 
 - As métricas de rádio representam a portadora primária reportada pelo aparelho
